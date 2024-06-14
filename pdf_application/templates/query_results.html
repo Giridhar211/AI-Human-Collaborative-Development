@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Query Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Query Results</h1>
+    <div class="pdf-viewer">
+        <iframe src="{{ url_for('uploaded_file', filename=filename) }}" width="800px" height="600px"></iframe>
+    </div>
+    <pre>{{ results }}</pre>
+    <a href="{{ url_for('uploaded_file', filename=filename) }}" download>Download Queried PDF</a>
+    <form action="{{ url_for('query_pdf') }}" method="post" class="query-form">
+        <input type="hidden" name="filename" value="{{ filename }}">
+        <input type="text" name="query_text" placeholder="Enter query text" required>
+        <button type="submit" class="query-button">Query Again</button>
+    </form>
+    <form action="{{ url_for('visualize_query') }}" method="post">
+        <input type="hidden" name="filename" value="{{ filename }}">
+    </form>
+</body>
+</html>
