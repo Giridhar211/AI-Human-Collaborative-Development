@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Router</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            /* Update background image path using url_for() */
+            background-image: url("{{ url_for('static', filename='images/images.webp') }}");
+            background-size: cover; /* or contain, depending on your needs */
+        }
+
+        .container {
+            display: flex;
+    width: 600px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+        }
+
+        .box {
+            width: 250px;
+            height: 150px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 20px;
+            background-color: #d2ccdd;
+            margin: 0 1rem;
+        }
+
+        .box-title {
+        color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, .5);
+    font-size: 2.4rem;
+    }
+
+        .box h2 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .box a {
+            display: block;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .box a:hover {
+            background-color: #45a049;
+        }
+
+        .box:first-child {
+            background-color: #dcc;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="box-title">AI + Human Collaborative IoT Development Hub</h1>
+        <div style="display: flex;">
+            <div class="box">
+            <h2> Document Synthesis Hub</h2>
+            <a href="http://localhost:3001" target="_blank">Launch</a>
+        </div>
+        <div class="box">
+            <h2> Development Synthesis Hub </h2>
+            <a href="http://localhost:5001" target="_blank">Launch</a>
+        </div>
+        </div>
+    </div>
+</body>
+</html>
