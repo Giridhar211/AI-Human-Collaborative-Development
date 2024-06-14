@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jupyter Notebook Integration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .select-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        select, input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AI-HUMAN Development WorkSpace</h1>
+        <div class="select-container">
+            <label for="server">Select Server:</label>
+            <select id="server">
+                <option value="http://localhost:8888">Default Server</option>
+                <option value="CUSTOM">Custom Server</option>
+            </select>
+            <div id="custom-server-input" style="display: none;">
+                <input type="text" id="custom-server-url" placeholder="Enter Custom Server URL">
+            </div>
+        </div>
+        <button onclick="openNotebook()" class="btn">Open Jupyter Notebook</button>
+    </div>
+
+    <script>
+        function openNotebook() {
+            var selectedOption = document.getElementById("server").value;
+            if (selectedOption === "CUSTOM") {
+                var customServerUrl = prompt("Please enter the Custom Server URL:");
+                if (customServerUrl) {
+                    window.open(customServerUrl, '_blank');
+                }
+            } else {
+                window.open(selectedOption, '_blank');
+            }
+        }
+
+        document.getElementById("server").addEventListener("change", function() {
+            var customServerInput = document.getElementById("custom-server-input");
+            if (this.value === "CUSTOM") {
+                customServerInput.style.display = "block";
+            } else {
+                customServerInput.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>
