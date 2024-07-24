@@ -1,5 +1,3 @@
-# Hackathon Idea
-
 ## Title: AI-Human Collaborative Adapter Development Services
 
 ---
